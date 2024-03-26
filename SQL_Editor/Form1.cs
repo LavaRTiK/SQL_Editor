@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,14 @@ namespace SQL_Editor
         {
             //Відключення бд
             Close();
+        }
+
+        private void підключенняToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConnectApp app = new ConnectApp();
+            app.Show();
+            MySqlConnection connection;
+
         }
     }
 }

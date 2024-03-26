@@ -61,6 +61,7 @@
             this.підключенняToolStripMenuItem.Name = "підключенняToolStripMenuItem";
             this.підключенняToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.підключенняToolStripMenuItem.Text = "Підключення";
+            this.підключенняToolStripMenuItem.Click += new System.EventHandler(this.підключенняToolStripMenuItem_Click);
             // 
             // відключенняToolStripMenuItem
             // 
