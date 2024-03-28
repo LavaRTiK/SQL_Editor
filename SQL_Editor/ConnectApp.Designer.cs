@@ -127,7 +127,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(279, 257);
+            this.button1.Location = new System.Drawing.Point(279, 284);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 28);
             this.button1.TabIndex = 9;
@@ -140,7 +140,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(170, 302);
+            this.label6.Location = new System.Drawing.Point(171, 309);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 24);
             this.label6.TabIndex = 10;
