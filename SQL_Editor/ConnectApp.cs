@@ -37,10 +37,8 @@ namespace SQL_Editor
             {
                 MessageBox.Show($"{ex.Message} return try");
             }
-            finally
-            {
-            }
             //вызов метода проверки подключения
+            //перенести всю эту белеберду в класс db после доставать отуда подключения через getconection (return connection)
         }
     }
 }
