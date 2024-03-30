@@ -27,10 +27,8 @@ namespace SQL_Editor
         private void button1_Click(object sender, EventArgs e)
         {
             DB db = new DB(textBox1.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text);
-
             db.Connect();
-
-
+            Form1.database = db;
             #region oldCode
             /*try
             {

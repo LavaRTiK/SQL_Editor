@@ -13,6 +13,7 @@ namespace SQL_Editor
 {
     public partial class Form1 : Form
     {
+        public static DB database;
         public Form1()
         {
             InitializeComponent();
@@ -32,8 +33,11 @@ namespace SQL_Editor
         private void підключенняToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConnectApp app = new ConnectApp();
-            app.Show();
-            MySqlConnection connection;
+            app.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }
