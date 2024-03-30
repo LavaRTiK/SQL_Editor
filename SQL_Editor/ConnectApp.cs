@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,31 @@ namespace SQL_Editor
         public ConnectApp()
         {
             InitializeComponent();
+        }
+
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection($"server={textBox1.Text};port={textBox2.Text};username={textBox3.Text};password={textBox4.Text};database={textBox5.Text}");
+                connection.Open();
+                label6.Text = "Connect Succes";
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} return try");
+            }
+            finally
+            {
+            }
+            //вызов метода проверки подключения
         }
     }
 }
