@@ -34,6 +34,11 @@ namespace SQL_Editor
         {
             ConnectApp app = new ConnectApp();
             app.ShowDialog();
+            if(database != null)
+            {
+                підключенняToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
+                підключенняToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
