@@ -68,6 +68,7 @@
             this.відключенняToolStripMenuItem.Name = "відключенняToolStripMenuItem";
             this.відключенняToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.відключенняToolStripMenuItem.Text = "Відключення";
+            this.відключенняToolStripMenuItem.Click += new System.EventHandler(this.відключенняToolStripMenuItem_Click);
             // 
             // вихідВідключенняToolStripMenuItem
             // 

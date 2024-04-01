@@ -45,5 +45,15 @@ namespace SQL_Editor
         {
 
         }
+
+        private void відключенняToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            database.CloseConnection();
+            database = null;
+            підключенняToolStripMenuItem.ForeColor=System.Drawing.Color.Black;
+            підключенняToolStripMenuItem.Enabled=true;
+            //Очистака таблицы.
+            MessageBox.Show("Database discconect");
+        }
     }
 }
