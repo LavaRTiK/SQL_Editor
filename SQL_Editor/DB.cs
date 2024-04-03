@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace SQL_Editor
 {
@@ -58,6 +59,36 @@ namespace SQL_Editor
             {
                 connection.Close();
             }
+        }
+        public void Add(string sql)
+        {
+            //придумать
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sql,connection);
+        }
+        public DataSet View(string sql)
+        {
+            MySqlDataAdapter adapter = new MySqlDataAdapter(sql,connection);
+            DataSet dataset = new DataSet();
+            adapter.Fill(dataset);
+            return dataset;
+        }
+        public void Delete(string sql)
+        {
+
+        }
+        public void Update(string sql)
+        {
+
+        }
+        public void RootInput(string sql)
+        {
+
+        }
+        public bool CheackConnect()
+        {
+            //true
+            //false =3
+            return true;
         }
 
     }

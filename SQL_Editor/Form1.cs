@@ -36,24 +36,34 @@ namespace SQL_Editor
             app.ShowDialog();
             if(database != null)
             {
+                dbstatus.Text = $"Online datebase to {database.GetConnection().Database}";
+                dbstatus.ForeColor = System.Drawing.Color.Green;
                 підключенняToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
                 підключенняToolStripMenuItem.Enabled = false;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void відключенняToolStripMenuItem_Click(object sender, EventArgs e)
         {
             database.CloseConnection();
             database = null;
+            dbstatus.Text = "Disconnect databes";
+            dbstatus.ForeColor = System.Drawing.Color.Red;
             підключенняToolStripMenuItem.ForeColor=System.Drawing.Color.Black;
             підключенняToolStripMenuItem.Enabled=true;
             //Очистака таблицы.
             MessageBox.Show("Database discconect");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(database == null)
+            {
+                MessageBox.Show("Need to Connect db");
+                return;
+            }
+            database.OpenConection();
+            dataGridView1.DataSource = database.View("SELECT * FROM users").Tables[0];
+            database.CloseConnection();
         }
     }
 }
