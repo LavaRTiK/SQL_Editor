@@ -34,6 +34,7 @@ namespace SQL_Editor
         {
             ConnectApp app = new ConnectApp();
             app.ShowDialog();
+            //app.ReturnDB(); work method
             if(database != null)
             {
                 dbstatus.Text = $"Online datebase to {database.GetConnection().Database}";

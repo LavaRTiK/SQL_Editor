@@ -18,6 +18,7 @@ namespace SQL_Editor
             InitializeComponent();
         }
 
+        //private DB database = null; work method
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -29,6 +30,7 @@ namespace SQL_Editor
             DB db = new DB(textBox1.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text);
             db.Connect();
             Form1.database = db;
+            //database = db; work mathod
             #region oldCode
             /*try
             {
@@ -46,5 +48,9 @@ namespace SQL_Editor
             //вызов метода проверки подключения
             //перенести всю эту белеберду в класс db после доставать отуда подключения через getconection (return connection)
         }
+        /*public DB ReturnDB()
+        {
+            return database;
+        } work method */
     }
 }
