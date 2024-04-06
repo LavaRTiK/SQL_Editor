@@ -62,6 +62,31 @@ namespace SQL_Editor
                 MessageBox.Show("Need to Connect db");
                 return;
             }
+            UpdateGrid();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var idGrid = e.RowIndex;
+            var sqlGridSelectCollection = dataGridView1.Rows[idGrid].Cells;//тут айди можно доставть sql
+            var sqlId = sqlGridSelectCollection[0].Value.ToString();
+            var sqlColumnName = dataGridView1.Columns[e.ColumnIndex].HeaderText; //имя стобца
+            var sqlColumnNameId = dataGridView1.Columns[0].HeaderText;
+            var currentName = dataGridView1.SelectedCells[0].Value.ToString(); // на что изменить
+            var tablelName = "users";
+            string sql = $"{tablelName} {sqlColumnName} {currentName} {sqlGridSelectCollection[0].Value}";
+            //await bool upadete
+            database.Update(tablelName, sqlColumnName, currentName, sqlColumnNameId,sqlId);
+            UpdateGrid();
+            MessageBox.Show($"edit {sql} ");
+        }
+        public void UpdateGrid()
+        {
             database.OpenConection();
             dataGridView1.DataSource = database.View("SELECT * FROM users").Tables[0];
             database.CloseConnection();

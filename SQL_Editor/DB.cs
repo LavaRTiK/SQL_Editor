@@ -76,8 +76,23 @@ namespace SQL_Editor
         {
 
         }
-        public void Update(string sql)
+        public bool Update(string tabelName,string columName,string currentName,string tabelNameId,string sqlId)
         {
+            try
+            {
+                OpenConection();
+                string currentSQL = $"UPDATE {tabelName} SET {columName}='{currentName}' WHERE {tabelNameId}={sqlId};";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(currentSQL, connection);
+                DataSet dataset = new DataSet();
+                adapter.Fill(dataset);
+                CloseConnection();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
 
         }
         public void RootInput(string sql)
