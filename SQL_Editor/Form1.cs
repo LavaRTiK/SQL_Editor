@@ -70,7 +70,7 @@ namespace SQL_Editor
 
         }
 
-        private async void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             var idGrid = e.RowIndex;
             var sqlGridSelectCollection = dataGridView1.Rows[idGrid].Cells;//тут айди можно доставть sql
@@ -90,6 +90,12 @@ namespace SQL_Editor
             database.OpenConection();
             dataGridView1.DataSource = database.View("SELECT * FROM users").Tables[0];
             database.CloseConnection();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Add add = new Add(1);
+            add.ShowDialog();
         }
     }
 }
