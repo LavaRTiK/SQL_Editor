@@ -94,7 +94,9 @@ namespace SQL_Editor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Add add = new Add(1);
+            var data = dataGridView1.Columns;
+            Add add = new Add(data);
+            //MessageBox.Show();
             add.ShowDialog();
         }
     }

@@ -17,22 +17,26 @@ namespace SQL_Editor
         {
             InitializeComponent();
         }
-        public Add(int cout)
+        public Add(DataGridViewColumnCollection columnCollection)
         {
             InitializeComponent();
-            this.countButton = cout;
-            int sizelabel = 30;
-            int lastpositon = 10;
-            for (int i = 0; i < 10; i++)
+            for(int i = 0; i < columnCollection.Count; i++)
+            {
+                MessageBox.Show($"{columnCollection[i].HeaderText} --- ");
+            }
+            this.countButton = columnCollection.Count;
+            int sizelabel = 40;
+            int lastpositon = 20;
+            for (int i = 0; i < columnCollection.Count; i++)
             {
                 Label label = new Label();
-                label.Text = "label" + i;
-                label.Location = new Point(2, lastpositon);
+                label.Text = columnCollection[i].HeaderText;
+                label.Location = new Point(10, lastpositon);
                 Controls.Add(label);
                 //MessageBox.Show($"create label{i}");
                 TextBox tb = new TextBox();
                 tb.Text = "text" + i;
-                tb.Location = new Point(110, lastpositon);
+                tb.Location = new Point(100, lastpositon);//перенести все єто в метод  добавить name и найти как его нходить лучше знаести все это в колекцию и отуда доставать 
                 Controls.Add(tb);
                 lastpositon += sizelabel;
             }
