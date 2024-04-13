@@ -13,6 +13,7 @@ namespace SQL_Editor
     public partial class Add : Form
     {
         private int countButton;
+        private Dictionary<Label, TextBox> dictionaryValue = new Dictionary<Label, TextBox>();
         public Add()
         {
             InitializeComponent();
@@ -38,11 +39,19 @@ namespace SQL_Editor
                 tb.Text = "text" + i;
                 tb.Location = new Point(100, lastpositon);//перенести все єто в метод  добавить name и найти как его нходить лучше знаести все это в колекцию и отуда доставать 
                 Controls.Add(tb);
+                dictionaryValue.Add(label, tb);
                 lastpositon += sizelabel;
             }
             MessageBox.Show(countButton.ToString());
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach(var value in dictionaryValue)
+            {
+                MessageBox.Show($"{value.Key.Text} => {value.Value.Text}");//метод адд который должен будет проверить на правильность ввода дных , и дабавить события на текс бокс которые буду ограничивать ввод/
+                //add должен проверять существоет ли айди в даном bd в случаи true возращять ошибку в случаи false добавлять даные
+            }
+        }
     }
 }
